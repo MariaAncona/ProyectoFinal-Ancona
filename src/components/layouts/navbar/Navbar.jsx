@@ -1,4 +1,5 @@
 import CartWidget from "../../common/cartWidget/CartWidget";
+import ButtonComponent from "../../common/buttonComponent/buttonComponent";
 
 const Navbar = () => {
     return (
@@ -6,13 +7,13 @@ const Navbar = () => {
             <h3>logo</h3>
        
 
-        <ul>
-            <li>Plantas</li>
-            <li>Árboles</li>
-            <li>Macetas</li>
-            <li>Plantas en Maceta</li>
-            <li>Materiales</li>
-        </ul>
+        <nav>
+          <ButtonComponent texto="Plantas" />
+          <ButtonComponent texto="Árboles" />
+          <ButtonComponent texto="Macetas" />
+          <ButtonComponent texto="Plantas con Maceta" />
+          <ButtonComponent texto="Accesorios" />
+        </nav>
         <CartWidget />
         </div>
     );
