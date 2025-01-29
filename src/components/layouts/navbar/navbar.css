@@ -1,10 +1,10 @@
 .navbar{ 
-    background-color: #c28a8a;
+    background-color: #de8181;
     padding: 10px 20px; 
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    height: 50px;
+    height: 60px;
 }
 
 .logo{
