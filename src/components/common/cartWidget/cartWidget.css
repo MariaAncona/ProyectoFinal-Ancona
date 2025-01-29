@@ -1,0 +1,11 @@
+.cart-container{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+cart-number{
+    font-size: 10px;
+}
