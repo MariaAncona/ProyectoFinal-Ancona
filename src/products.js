@@ -22,7 +22,7 @@ export const products = [
         title: "Palmera",
         price: 1500,
         stock: 5,
-        category: "Árboles",
+        category: "arboles",
         description: "Exterior 2 a 5 metros de altura",
         imageUrl: ""
     },
@@ -32,7 +32,7 @@ export const products = [
         title: "Naranjo",
         price: 2500,
         stock: 3,
-        category: "Árboles",
+        category: "arboles",
         description: "Exterior 2 a 3.5 metros de altura",
         imageUrl: ""
     },
@@ -41,7 +41,7 @@ export const products = [
         title: "Maceta de cerámica",
         price: 5500,
         stock: 7,
-        category: "Macetas",
+        category: "macetas",
         description: "Díametro 20cm altura 15cm",
         imageUrl: ""
     },
@@ -50,7 +50,7 @@ export const products = [
         title: "Maceta de barro",
         price: 5800,
         stock: 8,
-        category: "Macetas",
+        category: "macetas",
         description: "Díametro 25cm altura 20cm",
         imageUrl: ""
     },
@@ -59,7 +59,7 @@ export const products = [
         title: "Maceta de metal",
         price: 8500,
         stock: 2,
-        category: "Macetas",
+        category: "macetas",
         description: "ancho 30cm altura 15cm",
         imageUrl: ""
     },
@@ -68,7 +68,7 @@ export const products = [
         title: "Tierra",
         price: 500,
         stock: 50,
-        category: "Extras",
+        category: "extras",
         description: "Tierra de la mejor calidad para tus plantas",
         imageUrl: ""
     },
@@ -77,7 +77,7 @@ export const products = [
         title: "Pala",
         price: 400,
         stock: 20,
-        category: "Extras",
+        category: "extras",
         description: "Pala de 15 cm para el cuidado de tus plantas",
         imageUrl: ""
     },
@@ -86,7 +86,7 @@ export const products = [
         title: "Fertilizante Natural",
         price: 1200,
         stock: 20,
-        category: "Extras",
+        category: "extras",
         description: "El mejor fertilizante para que tus plantas crezcan",
         imageUrl: ""
     },

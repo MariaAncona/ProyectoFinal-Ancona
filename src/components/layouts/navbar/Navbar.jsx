@@ -1,22 +1,39 @@
 import CartWidget from "../../common/cartWidget/CartWidget";
-import ButtonComponent from "../../common/buttonComponent/buttonComponent";
 import "./navbar.css";
-import logo from"../../../assets/logo.png";
+import logo from "../../../assets/logo.png";
+import { Link } from "react-router";
 
 const Navbar = () => {
-    return (
-        <nav className="navbar">
-            <a className ="logo"href="#"> <img src={logo} alt="logo Plantia" /></a>
+  return (
+    <nav className="navbar">
+     <Link to="/">
+        <img src={logo} alt="logo Plantia" />
+     </Link>
+   
 
-          <ButtonComponent texto="Todas" />
-          <ButtonComponent texto="Plantas" />
-          <ButtonComponent texto="Árboles" />
-          <ButtonComponent texto="Macetas" />
-          <ButtonComponent texto="Extras" />
-       
+      <ul>
+        <Link to="/">
+          <li>Todas</li>
+        </Link>
+        <Link to="/category/plantas">
+          <li>Plantas</li>
+        </Link>
+        <Link to="/category/arboles">
+          <li>Árboles</li>
+        </Link>
+        <Link to="/category/macetas">
+          <li>Macetas</li>
+        </Link>
+        <Link to="/category/extras">
+          <li>Extras</li>
+        </Link>
+      </ul>
+
+      <Link to="/cart">
         <CartWidget />
-        </nav>
-    );
+      </Link>
+    </nav>
+  );
 };
 
 export default Navbar;
