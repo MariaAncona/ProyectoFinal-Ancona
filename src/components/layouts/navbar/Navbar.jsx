@@ -7,12 +7,12 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <a className ="logo"href="#"> <img src={logo} alt="logo Plantia" /></a>
-       
+
+          <ButtonComponent texto="Todas" />
           <ButtonComponent texto="Plantas" />
           <ButtonComponent texto="Árboles" />
           <ButtonComponent texto="Macetas" />
-          <ButtonComponent texto="Plantas con Maceta" />
-          <ButtonComponent texto="Accesorios" />
+          <ButtonComponent texto="Extras" />
        
         <CartWidget />
         </nav>
