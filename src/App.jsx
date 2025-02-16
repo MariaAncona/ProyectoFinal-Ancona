@@ -1,16 +1,26 @@
 import Navbar from "./components/layouts/navbar/Navbar"
 import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
-import Counter from "./components/common/counter/Counter";
+import Cart from "./components/pages/Cart/Cart";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemDetail from "./components/pages/itemDetail/ItemDetail";
 
 
 function App() {
 
   return (
-    <div>
+
+    <BrowserRouter>
       {<Navbar />}
-      {<ItemListContainer greeting={"Bienvenido a Plantia"}/>}
-      {<Counter />}
-    </div>
+      <Routes>
+        <Route path="/" element= {<ItemListContainer/> } />
+        <Route path="/category/:name" element={<ItemListContainer />} />
+        <Route path="/cart" element ={<Cart />} />
+        <Route path="/itemDetail/:id" element={<ItemDetail/>} />
+        
+        <Route path="*" element={<h2>404 Not Found</h2>} />
+      </Routes>
+    </BrowserRouter>
       
   );
 };

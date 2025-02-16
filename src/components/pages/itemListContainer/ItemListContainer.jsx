@@ -2,8 +2,10 @@ import "./itemListContainer.css"
 import ProductCard from "../../common/productCard/productCard";
 import { products } from "../../../products";
 import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
+    // const { name } = useParams();
 
     const [items, setItems] = useState ([]);
 

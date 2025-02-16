@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Counter = () => {
     const [contador, setContador] = useState(1)
+
+    useEffect (()=>{
+
+    })
 
     const sumar = () => {
         setContador ( contador + 1);
