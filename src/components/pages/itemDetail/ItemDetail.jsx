@@ -2,6 +2,7 @@ import { products} from "../../../products";
 import { useEffect, useState } from "react";
 import Counter from "../../common/counter/Counter";
 import { useParams } from "react-router";
+import "./itemdetail.css"
 
 const ItemDetail =() => {
     const {id} = useParams ();
@@ -15,12 +16,14 @@ const ItemDetail =() => {
     }, [id]);
 
   return (
-    <div>
+    <div className="item-detail-container">
         <img src={item.imageUrl}></img>
-        <h2>{item.title}</h2>
-        <h2>{item.description}</h2>
-        <h2>{item.price}</h2>
-        <Counter item = {item}/>
+        <div className="item-info">
+          <h3>{item.title}</h3>
+          <h4>{item.description}</h4>
+          <h6>${item.price}</h6>
+          <Counter item = {item}/>
+        </div>
     </div>
   );
 };

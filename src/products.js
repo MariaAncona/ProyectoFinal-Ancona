@@ -3,7 +3,7 @@ export const products = [
         id: "1",
         title: "Monstera",
         price: 300,
-        stock: 50,
+        stock: 20,
         category: "plantas",
         description: "Arbusto de interior y exterior",
         imageUrl: "https://res.cloudinary.com/dzrqxndnp/image/upload/v1739750461/d6771e_cce94f8db897475cb170a7e9e6d96eb8_mv2_rmhqdn.png"
