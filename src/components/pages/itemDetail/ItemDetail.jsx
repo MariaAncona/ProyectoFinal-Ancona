@@ -16,6 +16,7 @@ const ItemDetail =() => {
 
   return (
     <div>
+        <img src={item.imageUrl}></img>
         <h2>{item.title}</h2>
         <h2>{item.description}</h2>
         <h2>{item.price}</h2>

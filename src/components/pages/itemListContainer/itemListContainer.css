@@ -1,7 +1,17 @@
-.greeting{
+.page-container{
+    justify-content: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.page-container h1{
     text-align: center;
-    padding: 10px;
-    padding-top: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(139, 203, 97);
+}
+
+.products-container{
+    margin-top: 20px;
+    display: flex;
+    gap:222px;
+    flex-wrap: wrap;
+    justify-content: center;
 }

@@ -1,17 +1,17 @@
 import "./cartWidget.css"
-import { IconButton } from "@mui/material";
-import { GrCart } from "react-icons/gr";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Badge } from "@mui/material";
+
+
 const CartWidget = () => {
-    const handleCartClick = () => {
-        alert (`Carrito vacio`)
-    };
+    // const handleCartClick = () => {
+    //     alert (`Carrito vacio`)
+    // };
     return (
-        <div className="cart-container">
-        <h3 className="cart-number">0</h3>
-        <IconButton onClick={handleCartClick}>
-            <GrCart />
-        </IconButton>
-        </div>
+        
+        <Badge badgeContent={1} color="secundary">
+        <ShoppingCartOutlinedIcon color="black"/>
+        </Badge>
     );
 };
 

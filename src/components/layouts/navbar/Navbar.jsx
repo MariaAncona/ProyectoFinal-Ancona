@@ -6,32 +6,23 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <nav className="navbar">
-     <Link to="/">
-        <img src={logo} alt="logo Plantia" />
-     </Link>
-   
-
-      <ul>
+      <div className="logo">
         <Link to="/">
-          <li>Todas</li>
+          <img src={logo} alt="logo Plantia" />
         </Link>
-        <Link to="/category/plantas">
-          <li>Plantas</li>
-        </Link>
-        <Link to="/category/arboles">
-          <li>Árboles</li>
-        </Link>
-        <Link to="/category/macetas">
-          <li>Macetas</li>
-        </Link>
-        <Link to="/category/extras">
-          <li>Extras</li>
-        </Link>
+      </div>
+      <ul className="categories">
+        <Link to="/">Todas</Link>
+        <Link to="/category/plantas">Plantas</Link>
+        <Link to="/category/arboles">Árboles</Link>
+        <Link to="/category/macetas">Macetas</Link>
+        <Link to="/category/extras">Extras</Link>
       </ul>
-
-      <Link to="/cart">
-        <CartWidget />
-      </Link>
+      <div>
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
+      </div>
     </nav>
   );
 };

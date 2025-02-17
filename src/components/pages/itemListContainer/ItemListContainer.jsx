@@ -34,14 +34,19 @@ const ItemListContainer = () => {
 }, [name]);
 
 return (
-    <div>
-        <h1>Todos mis productos</h1>
-        {items.map((item) => {
-            return (
-            <ProductCard key={item.id} {...item} />
-        );
-        })}
+    <div className="page-container">
+        <h1>Tienda</h1>
+        
+        <div className="products-container">
+            
+            {items.map((item) => {
+                return (
+                <ProductCard key={item.id} {...item} />
+            );
+            })}
+        </div>
     </div>
+    
     );
 };
 
