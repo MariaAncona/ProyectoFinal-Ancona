@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 
 function Cart() {
   return (
-    <div>Cart</div>
-  )
-}
+    <div>Cart
+   <Link to="/checkout"> Finalizar Compra</Link>
+   </div>
+   );
+};
 
-export default Cart
+export default Cart;
