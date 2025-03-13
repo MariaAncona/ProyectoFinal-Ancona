@@ -2,7 +2,8 @@ import { products} from "../../../products";
 import { useEffect, useState } from "react";
 import Counter from "../../common/counter/Counter";
 import { useParams } from "react-router";
-import "./itemdetail.css"
+import "./itemdetail.css";
+
 
 const ItemDetail =() => {
     const {id} = useParams ();
@@ -10,7 +11,7 @@ const ItemDetail =() => {
     const [item, setItem] = useState ({})
 
     useEffect (() => {
-        let producto = products.find ((product) => product.id === id )
+        let producto = products.find ((product) => product.id === id );
         setItem (producto);
 
     }, [id]);

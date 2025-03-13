@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+
 
 const Checkout = () => {
+
+  const {cart} = useContext (CartContext);
+
   const [user, setUser] = useState({
     nombre: "",
     apellido: "",
@@ -12,97 +17,106 @@ const Checkout = () => {
   });
 
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
     console.log(options);
-};
+  };
 
-const handleChange = (e) => {
-    const {value, name} = e.target;
-    setUser ({...user, [name]: value});
-};
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setUser({ ...user, [name]: value });
+  };
 
-const arrayPaises = [
-    {label: "México", value: "mexico"},
-    {label: "Argentina", value: "argentina"},
-    {label: "Colombia", value: "colombia"},
-    {label: "Brasil", value: "brasil"},
-    {label: "Venezuela", value: "venezuela"},
-];
+  const arrayPaises = [
+    { label: "México", value: "mexico" },
+    { label: "Argentina", value: "argentina" },
+    { label: "Colombia", value: "colombia" },
+    { label: "Brasil", value: "brasil" },
+    { label: "Venezuela", value: "venezuela" },
+  ];
 
-const [options, setOptions] = useState ([]);
+  const [options, setOptions] = useState([]);
 
-const handleCheck = (e) => {
-    const {value, checked} = e.target;
+  const handleCheck = (e) => {
+    const { value, checked } = e.target;
     if (checked) {
-        setOptions ([...options, value]);
-    }else {
-        const optionsFiltered = options.filter ((option) => option !== value);
-        setOptions(optionsFiltered);
+      setOptions([...options, value]);
+    } else {
+      const optionsFiltered = options.filter((option) => option !== value);
+      setOptions(optionsFiltered);
     }
+  };
 
-    };
-
-
-
-return (
-  <div>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Nombre"
-        name="nombre"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Apellido"
-        name="apellido"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Email"
-        name="email"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Teléfono"
-        name="telefono"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Dirección"
-        name="direccion"
-        onChange={handleChange}
-      />
-      <select name="pais" onChange={handleChange}>
-        {arrayPaises.map ((pais)=>{
-            return (
-                <option key={pais.value} value={pais.value} label={pais.label}/>
-            );
+  return (
+    <div>
+      <div>
+        {cart.map((elemento) => {
+          return (
+            <div key={elemento.id}>
+              <img src={elemento.imageUrl}></img>
+              <h2>{elemento.title}</h2>
+              <h2>{elemento.quantity}</h2>
+              <h2>{elemento.price}</h2>
+            </div>
+          );
         })}
+      </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Nombre"
+          name="nombre"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Apellido"
+          name="apellido"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Teléfono"
+          name="telefono"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Dirección"
+          name="direccion"
+          onChange={handleChange}
+        />
+        <select name="pais" onChange={handleChange}>
+          {arrayPaises.map((pais) => {
+            return (
+              <option key={pais.value} value={pais.value} label={pais.label} />
+            );
+          })}
         </select>
 
         <div>
-            <input type="checkbox" value="regalo" onChange={handleCheck}/>
-            <label>Envoltura de regalo </label>
+          <input type="checkbox" value="regalo" onChange={handleCheck} />
+          <label>Envoltura de regalo </label>
         </div>
         <div>
-            <input type="checkbox" value="urgente" onChange={handleCheck}/>
-            <label>Envio urgente </label>
+          <input type="checkbox" value="urgente" onChange={handleCheck} />
+          <label>Envio urgente </label>
         </div>
 
         <button>Comprar</button>
         <Link to="/cart">
-        <button type= "button">Volver al carrito</button>
+          <button type="button">Volver al carrito</button>
         </Link>
-    </form>
-  </div>
-);
+      </form>
+    </div>
+  );
 };
 
 export default Checkout;

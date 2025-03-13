@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./counter.css";
+import { CartContext } from "../../context/CartContext";
 
 
 const Counter = ({item}) => {
     console.log (item);
     console.log (item.stock);
-    const [contador, setContador] = useState(1)
+    const [contador, setContador] = useState(1);
+    const {addToCart} = useContext (CartContext);
 
     const sumar = () => {
         if( contador < item.stock) {
@@ -26,9 +28,8 @@ const Counter = ({item}) => {
     };
 
     const onAdd = () => {
-        alert (`Agregaste al carrito ${contador} ${item.title}`);
-        let agregarCarrito = {...item, quantity: contador};
-        console.log (agregarCarrito);
+        let objetoCarrito = { ...item, quantity: contador};
+        addToCart (objetoCarrito);
     };
   return (
     <div className="counter-container">
