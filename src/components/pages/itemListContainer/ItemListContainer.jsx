@@ -1,10 +1,11 @@
 import "./itemListContainer.css";
 import ProductCard from "../../common/productCard/productCard";
-import { products } from "../../../products";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import ProductSkeleton from "../../common/productSkeleton/ProductSkeleton";
+import { db } from "../../../firebaseConfig";
+import { getDocs, collection } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { name } = useParams();
@@ -13,28 +14,14 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    let arrayFiltrado;
-    if (name) {
-      arrayFiltrado = products.filter((elemento) => elemento.category === name);
-    }
-    const getProducts = new Promise((resolve, reject) => {
-      let permiso = true;
-      if (permiso) {
-        resolve(name ? arrayFiltrado : products);
-      } else {
-        reject({ status: 400, message: "algo salió mal" });
-      }
-    });
-
-    getProducts
-      .then((res) => {
-        setTimeout(() => {
-          setItems(res);
-        }, 2000);
-      })
-      .catch((error) => {
-        console.log(error);
+    const coleccionDeProductos = collection(db, "products");
+    const getProducts = getDocs(coleccionDeProductos);
+    getProducts.then((res) => {
+      let newArray = res.docs.map((elemento) => {
+        return { id: elemento.id, ...elemento.data() };
       });
+      setItems(newArray);
+    });
   }, [name]);
 
   return (
