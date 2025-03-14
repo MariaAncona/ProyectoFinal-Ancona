@@ -39,7 +39,7 @@ const Counter = ({ item }) => {
         <button onClick={sumar}>+</button>
       </div>
       <button className="btn-add-cart" onClick={onAdd}>
-        agregar al carrito
+        Agregar al carrito
       </button>
     </div>
   );

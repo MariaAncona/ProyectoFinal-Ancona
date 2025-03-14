@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
 import { toast } from "sonner";
+import "./cart.css";
 
 const Cart = () => {
   const { resetCart, cart, removeById, getTotalAmount } =
@@ -28,15 +29,24 @@ const Cart = () => {
   let total = getTotalAmount();
 
   return (
-    <div>
+    <div className="container-carrito">
+      <div className="separador">
+        <h2>Resumen de compra</h2>
+      </div>
+
       {cart.map((elemento) => {
         return (
-          <div key={elemento.id}>
-            <img src={elemento.imageUrl}></img>
-            <h2>{elemento.title}</h2>
-            <h2>{elemento.quantity}</h2>
-            <h2>{elemento.price}</h2>
+          <div className="resume-carrito" key={elemento.id}>
+            <div className="info-carrito">
+              <img src={elemento.imageUrl}></img>
+              <div className="text-info-carrito">
+                <h3>{elemento.title}</h3>
+                <h4>Cantidad: {elemento.quantity}</h4>
+                <h4>${elemento.price}</h4>
+              </div>
+            </div>
             <button
+              className="btn-delete"
               onClick={() => {
                 removeById(elemento.id);
                 toast.warning("Producto eliminado del carrito");
@@ -48,7 +58,7 @@ const Cart = () => {
         );
       })}
 
-      {cart.lenght > 0 && <h2>Total: $ {total}</h2>}
+      {cart.length > 0 && <h2>El total a pagar es $ {total}</h2>}
 
       <button onClick={resetCartAlert}>Vaciar tu carrito</button>
       <button>

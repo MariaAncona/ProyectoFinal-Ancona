@@ -1,34 +1,56 @@
-.item-detail-container{
-    margin-top: 70px;
-    display: flex;
-    justify-content: center;
-    gap:30px;
+.item-detail-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.item-detail-container img{
-    width: 600px;
-    border: 1px rgb(188, 184, 184) solid;
+.item-detail-container img {
+  width: 550px;
+  height: 600px;
+  border: 1px rgb(188, 184, 184) solid;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.item-info h3{
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.item-info h3 {
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.item-info h4{
-    margin-top: 20px;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.item-info h4 {
+  margin-top: 20px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.item-info h6{
-    margin-top: 20px;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.item-info h6 {
+  margin-top: 20px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.separador {
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  background-color: #d0d2a9;
+}
+
+.separador h4 {
+  width: 100%;
+  height: 30px;
+  background-color: #d0d2a9;
+  align-self: center;
+  padding: 15px;
+  padding-left: 50px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 100;
 }

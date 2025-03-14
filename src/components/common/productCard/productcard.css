@@ -1,61 +1,72 @@
-.product-card{
-    width: 261px;
-    height: 473px;
-    padding-bottom: 24px;
-    align-items: center;
-    background: #CFB583;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-
+.product-card {
+  width: 285px;
+  height: 446px;
+  padding-bottom: 24px;
+  align-items: center;
+  background-color: #d0d2a9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.product-card img{
-    align-items: center;
-    width: 261px;
-    height: 265px;
+.product-card img {
+  align-items: center;
+  width: 285px;
+  height: 265px;
 }
 
-.product-info{
-    padding-top: 14px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 40px;
-    gap: 12px;
+.product-info {
+  padding-top: 14px;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  gap: 12px;
+  height: 120px;
+  background-color: #d0d2a9;
 }
 
-.product-info h3{
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.product-info h3 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #d0d2a9;
 }
 
-.product-info h4{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.product-info h4 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #d0d2a9;
 }
 
-.product-info h5{
-    color: #FFF;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.product-info h5 {
+  color: #d0d2a9;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.button-detail{
-    display: block;
-    text-decoration: none;
-    margin: auto;
-    width: 156px;
-    height: 39px;
-    border-radius: 10px;
-    background-color: #D9D9D9;
+.button-detail {
+  display: block;
+  text-decoration: none;
+  margin: auto;
+  width: 156px;
+  height: 39px;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  opacity: 0.6;
 }
 
-a{
-text-decoration: none;
+.button-detail:hover {
+  opacity: 0.7;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
 }
