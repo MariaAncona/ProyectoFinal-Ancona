@@ -1,10 +1,29 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 const Cart = () => {
   const { resetCart, cart, removeById, getTotalAmount } =
     useContext(CartContext);
+
+  const resetCartAlert = () => {
+    Swal.fire({
+      title: "Seguro que quieres vaciar tu carrito?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Confirmar",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        resetCart();
+        Swal.fire("Carrito vacio", "", "ok");
+      } else if (result.isDenied) {
+        Swal.fire("Tus productos siguen en el carrito", "", "info");
+      }
+    });
+  };
 
   let total = getTotalAmount();
 
@@ -17,12 +36,21 @@ const Cart = () => {
             <h2>{elemento.title}</h2>
             <h2>{elemento.quantity}</h2>
             <h2>{elemento.price}</h2>
-            <button onClick={() => {removeById(elemento.id);}}>Eliminar</button>
+            <button
+              onClick={() => {
+                removeById(elemento.id);
+                toast.warning("Producto eliminado del carrito");
+              }}
+            >
+              Eliminar
+            </button>
           </div>
         );
       })}
-      <h2>Total: $ {total}</h2>
-      <button onClick={resetCart}>Vaciar tu carrito</button>
+
+      {cart.lenght > 0 && <h2>Total: $ {total}</h2>}
+
+      <button onClick={resetCartAlert}>Vaciar tu carrito</button>
       <button>
         <Link to="/checkout"> Finalizar Compra</Link>
       </button>
