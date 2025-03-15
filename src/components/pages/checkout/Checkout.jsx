@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../../firebaseConfig";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
+import "./checkout.css";
 
 const Checkout = () => {
   const { cart, getTotalAmount, resetCart } = useContext(CartContext);
@@ -17,11 +18,11 @@ const Checkout = () => {
     pais: "",
   });
 
+  let total = getTotalAmount();
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    let total = getTotalAmount();
     let order = {
       buyer: user,
       items: cart,
@@ -72,78 +73,114 @@ const Checkout = () => {
 
   return (
     <div>
-      <div>
-        {cart.map((elemento) => {
-          return (
-            <div key={elemento.id}>
-              <img src={elemento.imageUrl}></img>
-              <h2>{elemento.title}</h2>
-              <h2>{elemento.quantity}</h2>
-              <h2>{elemento.price}</h2>
-            </div>
-          );
-        })}
+      <div className="separador">
+        <h2>checkout</h2>
       </div>
+
       {orderId ? (
-        <h2>Gracias por tu compra es {orderId}</h2>
+        <div className="container-alert">
+          <h2>Compra finalizada</h2>
+          <h4>
+            Ticket de compra: <span>{orderId}</span>
+          </h4>
+          <h5>¡Gracias por tu compra!</h5>
+          <button>
+            <Link to="/"> Volver a tienda</Link>
+          </button>
+        </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Nombre"
-            name="nombre"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Apellido"
-            name="apellido"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Teléfono"
-            name="telefono"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Dirección"
-            name="direccion"
-            onChange={handleChange}
-          />
-          <select name="pais" onChange={handleChange}>
-            {arrayPaises.map((pais) => {
+        <div className="checkout-container">
+          <div className="ticket">
+            <h2>Productos</h2>
+            {cart.map((elemento) => {
               return (
-                <option
-                  key={pais.value}
-                  value={pais.value}
-                  label={pais.label}
-                />
+                <div className="products-ticket" key={elemento.id}>
+                  <h4>{elemento.title}</h4>
+                  <h4>Cantidad {elemento.quantity}</h4>
+                  <h4>${elemento.price}</h4>
+                </div>
               );
             })}
-          </select>
-
-          <div>
-            <input type="checkbox" value="regalo" onChange={handleCheck} />
-            <label>Envoltura de regalo </label>
+            <h2> Total: ${total}</h2>
           </div>
-          <div>
-            <input type="checkbox" value="urgente" onChange={handleCheck} />
-            <label>Envio urgente </label>
-          </div>
+          <form className="form-checkout" onSubmit={handleSubmit}>
+            <h2>Ingresas tus datos</h2>
+            <div className="form-field">
+              <label>Nombre:</label>
+              <input
+                type="text"
+                placeholder="Ingresa tu nombre"
+                name="nombre"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-field">
+              <label>Apellido:</label>
+              <input
+                type="text"
+                placeholder="Ingresa tu apellido"
+                name="apellido"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-field">
+              <label>E-mail:</label>
+              <input
+                type="text"
+                placeholder="Ingresa tu E-mail"
+                name="email"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-field">
+              <label>Teléfono:</label>
+              <input
+                type="text"
+                placeholder="Ingresa tu teléfono"
+                name="telefono"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-field">
+              <label>Dirección</label>
+              <input
+                type="text"
+                placeholder="Ingresa tu dirección"
+                name="direccion"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-field">
+              <label>Selecciona tu país</label>
+              <select name="pais" onChange={handleChange}>
+                {arrayPaises.map((pais) => {
+                  return (
+                    <option
+                      key={pais.value}
+                      value={pais.value}
+                      label={pais.label}
+                    />
+                  );
+                })}
+              </select>
+            </div>
 
-          <button disabled={isLoading}>Comprar</button>
-          <Link to="/cart">
-            <button type="button">Volver al carrito</button>
-          </Link>
-        </form>
+            <div className="checkbox-field">
+              <input type="checkbox" value="regalo" onChange={handleCheck} />
+              <label>Envoltura de regalo </label>
+            </div>
+            <div className="checkbox-field">
+              <input type="checkbox" value="urgente" onChange={handleCheck} />
+              <label>Envio urgente </label>
+            </div>
+            <div className="btn-checkout">
+              <button disabled={isLoading}>Comprar</button>
+              <Link to="/cart">
+                <button type="button">Volver al carrito</button>
+              </Link>
+            </div>
+          </form>
+        </div>
       )}
 
       {isLoading && <h2>Procesando Compra</h2>}

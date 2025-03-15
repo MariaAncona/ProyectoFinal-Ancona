@@ -57,13 +57,15 @@ const Cart = () => {
           </div>
         );
       })}
-
-      {cart.length > 0 && <h2>El total a pagar es $ {total}</h2>}
-
-      <button onClick={resetCartAlert}>Vaciar tu carrito</button>
-      <button>
-        <Link to="/checkout"> Finalizar Compra</Link>
-      </button>
+      <div className="total-carrito">
+        {cart.length > 0 && <h2>El total a pagar es $ {total}</h2>}
+        <div className="btn-total">
+          <button onClick={resetCartAlert}>Vaciar tu carrito</button>
+          <button>
+            <Link to="/checkout"> Finalizar Compra</Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
