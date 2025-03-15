@@ -1,5 +1,5 @@
 import "./itemListContainer.css";
-import ProductCard from "../../common/productCard/productCard";
+import ProductCard from "../../common/productCard/ProductCard";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
