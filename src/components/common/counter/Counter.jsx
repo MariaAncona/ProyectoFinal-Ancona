@@ -4,8 +4,6 @@ import { CartContext } from "../../context/CartContext";
 import { toast } from "sonner";
 
 const Counter = ({ item }) => {
-  console.log(item);
-  console.log(item.stock);
   const [contador, setContador] = useState(1);
   const { addToCart } = useContext(CartContext);
 

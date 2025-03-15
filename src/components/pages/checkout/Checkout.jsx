@@ -36,7 +36,7 @@ const Checkout = () => {
       setOrderId(res.id);
       resetCart();
       setIsLoading(false);
-    }).catch((error) => console.log({ error }));
+    });
 
     let productCollection = collection(db, "products");
 
